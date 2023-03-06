@@ -1,0 +1,25 @@
+
+## How to run a python script on startup: ##
+
+
+We need to create a systemd service that will run on each startup.
+
+for example our service:
+________________________________________________
+[Unit]
+Description=Run python script on system startup # A description for the service
+
+[Service]
+ExecStart=/usr/bin/python3 python_exercise.py # Executable for the service
+WorkingDirectory=/home/daniel/git_workspace/python_exercise # Workdir for the service
+Restart=always # Restart service on fail
+
+[Install]
+WantedBy=multi-user.target # systemd dependency - when all the system initialization is complete 
+________________________________________________
+
+Place it under:
+/etc/systemd/system/python_exercise.service
+
+Finally enable it by executing:
+sudo systemctl enable servicename.service

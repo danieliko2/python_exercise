@@ -1,0 +1,10 @@
+[Unit]
+Description=Run python script on system startup
+
+[Service]
+ExecStart=/usr/bin/python3 python_exercise.py
+WorkingDirectory=/home/daniel/git_workspace/python_exercise
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

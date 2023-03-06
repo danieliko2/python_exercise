@@ -1,0 +1,10 @@
+adding a cronjob to run our script every hour:
+
+execute:
+crontab -e
+add the following job:
+0 * * * * /usr/bin/python3 /home/daniel/git_workspace/python_exercise/python_exercise.py
+
+will result in an execution every hour at 00.
+
+# minute - hour - day(month) - month - day(week)
