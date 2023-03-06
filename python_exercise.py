@@ -1,21 +1,28 @@
 import sys
+import logging
 
-num = sys.argv[1]
+def main():
+    parameters = sys.argv
 
-# input validation - only 1 numeric argument
-if len(sys.argv) == 1:
-    print("Error: No input")
-    exit(1)
-if len(sys.argv) != 2:
-    print("Error: Please provide only 1 input")
-    exit(1)
-if not num.isnumeric():
-    print("Error: Parameter is not a number")
-    exit(1)
+    # input validation - only 1 numeric argument
+    if len(parameters) == 1:
+        print("Error: No input")
+        exit(1)
+    if len(parameters) != 2:
+        print("Error: Please provide only 1 input")
+        exit(1)
+    if not parameters[1].isnumeric():
+        print("Error: Parameter is not a number")
+        exit(1)
 
-num=int(num)
-print("arg: ", num)
+    logging.basicConfig(filename='myapp.log', level=logging.INFO)
+    num=int(parameters[1])
+    print("arg: ", num)
 
-for i in range(1, num):
-    if num % i == 0:
-        print(i)
+    for i in range(1, num):
+        if num % i == 0:
+            print(i)
+
+
+if __name__ == '__main__':
+    main()
