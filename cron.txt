@@ -1,10 +1,24 @@
-adding a cronjob to run our script every hour:
+## Run script on startup ##
+adding a cronjob to run the script on startup:
 
-execute:
+access crontab by executing:
+crontab -e
+
+add the following job:
+@reboot /usr/bin/python3 /home/daniel/git_workspace/python_exercise/python_exercise.py
+
+will result in the script executing on startup.
+
+
+## Run script every hour ##
+adding a cronjob to run the script every hour:
+
+access crontab by executing:
 crontab -e
 add the following job:
 0 * * * * /usr/bin/python3 /home/daniel/git_workspace/python_exercise/python_exercise.py
 
 will result in an execution every hour at 00.
 
-# minute - hour - day(month) - month - day(week)
+
+# cronjob timing: minute - hour - day(month) - month - day(week) #
