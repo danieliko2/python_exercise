@@ -1,17 +1,21 @@
 import sys
 
 num = sys.argv[1]
+
+# input validation - only 1 numeric argument
 if len(sys.argv) == 1:
-    print("no input")
+    print("Error: No input")
     exit(1)
 if len(sys.argv) != 2:
-    print("please provide only 1 input")
+    print("Error: Please provide only 1 input")
     exit(1)
-if num.isnumeric():
-    print("num")
-else:
-    print("not a number")
+if not num.isnumeric():
+    print("Error: Parameter is not a number")
     exit(1)
 
-print("arg: ", sys.argv[1])
+num=int(num)
+print("arg: ", num)
 
+for i in range(1, num):
+    if num % i == 0:
+        print(i)
